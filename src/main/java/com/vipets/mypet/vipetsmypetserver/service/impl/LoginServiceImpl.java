@@ -18,7 +18,7 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public User login(String email, String password) {
 		if (StringUtils.isNotBlank(email) && StringUtils.isNotBlank(password)) {
-			password = CriptoUtil.criptografiaBase64Encoder(password);
+			password = CriptoUtil.criptografiaBase64Encoder(password);			
 			return userRepository.login(email, password);
 		}
 		return null;

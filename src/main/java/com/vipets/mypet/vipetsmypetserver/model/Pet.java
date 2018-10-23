@@ -33,7 +33,7 @@ public class Pet implements Serializable {
 	private AnimalSpecies AnimalSpecies;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "breed_id", nullable = false)
-	private AnimalSpecies Breed;
+	private Breed Breed;
 	@Column
 	private String color;
 	@Column
@@ -93,11 +93,11 @@ public class Pet implements Serializable {
 		AnimalSpecies = animalSpecies;
 	}
 
-	public AnimalSpecies getBreed() {
+	public Breed getBreed() {
 		return Breed;
 	}
 
-	public void setBreed(AnimalSpecies breed) {
+	public void setBreed(Breed breed) {
 		Breed = breed;
 	}
 

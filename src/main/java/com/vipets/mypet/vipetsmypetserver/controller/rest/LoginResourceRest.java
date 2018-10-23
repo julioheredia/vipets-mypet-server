@@ -14,7 +14,6 @@ public class LoginResourceRest {
 	@Autowired
 	private LoginService loginService;
 
-//	@RequestMapping("/login")
 	@PostMapping("/login")
 	public User login(@RequestParam(value = "email", defaultValue = "email") String email,
 			@RequestParam(value = "password", defaultValue = "password") String password) {

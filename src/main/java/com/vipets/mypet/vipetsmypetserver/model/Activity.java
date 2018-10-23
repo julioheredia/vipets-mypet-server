@@ -15,18 +15,18 @@ public class Activity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long activity_id;
+	private long activityId;
 	@Column
 	private String description;
 	@Column
 	private boolean active;
 
-	public long getActivity_id() {
-		return activity_id;
+	public long getActivityId() {
+		return activityId;
 	}
 
-	public void setActivity_id(long activity_id) {
-		this.activity_id = activity_id;
+	public void setActivityId(long activityId) {
+		this.activityId = activityId;
 	}
 
 	public String getDescription() {

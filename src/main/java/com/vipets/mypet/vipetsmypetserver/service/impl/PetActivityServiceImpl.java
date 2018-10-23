@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.vipets.mypet.vipetsmypetserver.dao.PetActivityRepository;
 import com.vipets.mypet.vipetsmypetserver.model.PetActivity;
 import com.vipets.mypet.vipetsmypetserver.model.Petshop;
+import com.vipets.mypet.vipetsmypetserver.model.User;
 import com.vipets.mypet.vipetsmypetserver.service.PetActivityService;
 
 @Service
@@ -19,6 +20,11 @@ public class PetActivityServiceImpl implements PetActivityService {
 	@Override
 	public List<PetActivity> searchPetActivityByPetshop(Petshop petshop) {
 		return petActivityRepository.searchPetActivityByPetshop(petshop);
+	}
+
+	@Override
+	public List<PetActivity> searchPetActivityByUser(User user) {
+		return petActivityRepository.searchPetActivityByUser(user);
 	}
 
 }

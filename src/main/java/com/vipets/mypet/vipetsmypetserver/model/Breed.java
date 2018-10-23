@@ -19,7 +19,6 @@ public class Breed implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long breedId;
-
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "animal_species_id", nullable = false)
 	private AnimalSpecies AnimalSpecies;

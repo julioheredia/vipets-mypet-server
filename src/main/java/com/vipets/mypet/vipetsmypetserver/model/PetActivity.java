@@ -22,7 +22,7 @@ public class PetActivity implements Serializable {
 	private long petActivityId;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", nullable = false)
-	private User User;
+	private User user;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "pet_id", nullable = false)
 	private Pet pet;
@@ -48,11 +48,11 @@ public class PetActivity implements Serializable {
 	}
 
 	public User getUser() {
-		return User;
+		return user;
 	}
 
 	public void setUser(User user) {
-		User = user;
+		this.user = user;
 	}
 
 	public Pet getPet() {
