@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vipets.mypet.vipetsmypetserver.model.PetActivity;
@@ -18,7 +18,7 @@ public class PetActivityResourceRest {
 	private PetActivityService petActivityService;
 
 	@PostMapping("/searchPetActivityByUser")
-	public List<PetActivity> searchPetActivityByUser(@RequestParam(value = "user", defaultValue = "user") User user) {
+	public List<PetActivity> searchPetActivityByUser(@RequestBody User user) {
 		return petActivityService.searchPetActivityByUser(user);
 	}
 

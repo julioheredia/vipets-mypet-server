@@ -8,7 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class Country implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -24,45 +27,5 @@ public class Country implements Serializable {
 	private String telCountryCode;
 	@Column
 	private boolean active;
-
-	public long getCountryId() {
-		return countryId;
-	}
-
-	public void setCountryId(long countryId) {
-		this.countryId = countryId;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getCountryCode() {
-		return countryCode;
-	}
-
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
-	}
-
-	public String getTelCountryCode() {
-		return telCountryCode;
-	}
-
-	public void setTelCountryCode(String telCountryCode) {
-		this.telCountryCode = telCountryCode;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
 
 }

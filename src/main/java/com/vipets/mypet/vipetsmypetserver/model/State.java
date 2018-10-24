@@ -11,7 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class State implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -30,53 +33,5 @@ public class State implements Serializable {
 	private String telStateCode;
 	@Column
 	private String active;
-
-	public long getStateId() {
-		return stateId;
-	}
-
-	public void setStateId(long stateId) {
-		this.stateId = stateId;
-	}
-
-	public Country getCountry() {
-		return country;
-	}
-
-	public void setCountry(Country country) {
-		this.country = country;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getStateCode() {
-		return stateCode;
-	}
-
-	public void setStateCode(String stateCode) {
-		this.stateCode = stateCode;
-	}
-
-	public String getTelStateCode() {
-		return telStateCode;
-	}
-
-	public void setTelStateCode(String telStateCode) {
-		this.telStateCode = telStateCode;
-	}
-
-	public String getActive() {
-		return active;
-	}
-
-	public void setActive(String active) {
-		this.active = active;
-	}
 
 }

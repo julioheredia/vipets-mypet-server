@@ -17,9 +17,17 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public User login(String email, String password) {
+
+		System.out.println("metodo de login - " + email + " - parametro ");
+
 		if (StringUtils.isNotBlank(email) && StringUtils.isNotBlank(password)) {
-			password = CriptoUtil.criptografiaBase64Encoder(password);			
-			return userRepository.login(email, password);
+			password = CriptoUtil.criptografiaBase64Encoder(password);
+
+			User loger = userRepository.login(email, password);
+			//if (loger != null)
+			System.out.println("logou  " + loger.getEmail());
+
+			return loger;
 		}
 		return null;
 	}

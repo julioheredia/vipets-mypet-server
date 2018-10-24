@@ -1,7 +1,7 @@
 package com.vipets.mypet.vipetsmypetserver.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class PetActivity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -33,74 +36,10 @@ public class PetActivity implements Serializable {
 	@JoinColumn(name = "petshop_id", nullable = false)
 	private Petshop petshop;
 	@Column
-	private Date clientScheduledTime;
+	private LocalDate clientScheduledTime;
 	@Column
-	private Date activityStart;
+	private LocalDate activityStart;
 	@Column
-	private Date activityEnd;
-
-	public long getPetActivityId() {
-		return petActivityId;
-	}
-
-	public void setPetActivityId(long petActivityId) {
-		this.petActivityId = petActivityId;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Pet getPet() {
-		return pet;
-	}
-
-	public void setPet(Pet pet) {
-		this.pet = pet;
-	}
-
-	public Activity getActivity() {
-		return activity;
-	}
-
-	public void setActivity(Activity activity) {
-		this.activity = activity;
-	}
-
-	public Petshop getPetshop() {
-		return petshop;
-	}
-
-	public void setPetshop(Petshop petshop) {
-		this.petshop = petshop;
-	}
-
-	public Date getClientScheduledTime() {
-		return clientScheduledTime;
-	}
-
-	public void setClientScheduledTime(Date clientScheduledTime) {
-		this.clientScheduledTime = clientScheduledTime;
-	}
-
-	public Date getActivityStart() {
-		return activityStart;
-	}
-
-	public void setActivityStart(Date activityStart) {
-		this.activityStart = activityStart;
-	}
-
-	public Date getActivityEnd() {
-		return activityEnd;
-	}
-
-	public void setActivityEnd(Date activityEnd) {
-		this.activityEnd = activityEnd;
-	}
+	private LocalDate activityEnd;
 
 }

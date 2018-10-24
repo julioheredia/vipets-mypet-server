@@ -1,7 +1,7 @@
 package com.vipets.mypet.vipetsmypetserver.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,7 +14,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class Petshop implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,9 +38,9 @@ public class Petshop implements Serializable {
 	@Column
 	private String telephoneAux;
 	@Column
-	private Date dateRegistration;
+	private LocalDate dateRegistration;
 	@Column
-	private Date dateLastChange;
+	private LocalDate dateLastChange;
 
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "animal_petshop", joinColumns = @JoinColumn(name = "petshop_id"), inverseJoinColumns = @JoinColumn(name = "pet_id"))
@@ -46,93 +49,5 @@ public class Petshop implements Serializable {
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "user_petshop", joinColumns = @JoinColumn(name = "petshop_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> clients;
-
-	public long getPetshopId() {
-		return petshopId;
-	}
-
-	public void setPetshopId(long petshopId) {
-		this.petshopId = petshopId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getBusinessName() {
-		return businessName;
-	}
-
-	public void setBusinessName(String businessName) {
-		this.businessName = businessName;
-	}
-
-	public byte[] getLogo() {
-		return logo;
-	}
-
-	public void setLogo(byte[] logo) {
-		this.logo = logo;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-
-	public String getTelephoneAux() {
-		return telephoneAux;
-	}
-
-	public void setTelephoneAux(String telephoneAux) {
-		this.telephoneAux = telephoneAux;
-	}
-
-	public Date getDateRegistration() {
-		return dateRegistration;
-	}
-
-	public void setDateRegistration(Date dateRegistration) {
-		this.dateRegistration = dateRegistration;
-	}
-
-	public Date getDateLastChange() {
-		return dateLastChange;
-	}
-
-	public void setDateLastChange(Date dateLastChange) {
-		this.dateLastChange = dateLastChange;
-	}
-
-	public List<Pet> getPets() {
-		return pets;
-	}
-
-	public void setPets(List<Pet> pets) {
-		this.pets = pets;
-	}
-
-	public List<User> getClients() {
-		return clients;
-	}
-
-	public void setClients(List<User> clients) {
-		this.clients = clients;
-	}
 
 }
