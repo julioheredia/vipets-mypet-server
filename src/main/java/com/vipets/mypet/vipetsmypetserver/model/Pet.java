@@ -15,6 +15,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -31,12 +34,16 @@ public class Pet implements Serializable {
 	private String name;
 	@Column
 	private byte[] photo;
+
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "animal_species_id", nullable = false)
 	private AnimalSpecies AnimalSpecies;
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "breed_id", nullable = false)
 	private Breed Breed;
+
 	@Column
 	private String color;
 	@Column
@@ -56,12 +63,17 @@ public class Pet implements Serializable {
 	@Column
 	private LocalDate birthDate;
 
+	@JsonIgnore
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "animal_petshop", joinColumns = @JoinColumn(name = "pet_id"), inverseJoinColumns = @JoinColumn(name = "petshop_id"))
 	private List<Petshop> petshops;
 
+	@JsonIgnore
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "pet_owner", joinColumns = @JoinColumn(name = "pet_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> owners;
 
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY)
+	private List<PetActivity> petActivitys;
 }

@@ -24,7 +24,15 @@ public class PetActivityServiceImpl implements PetActivityService {
 
 	@Override
 	public List<PetActivity> searchPetActivityByUser(User user) {
-		return petActivityRepository.searchPetActivityByUser(user);
+
+		System.out.println("petActivityRepository user_id" + user.getUserId());
+		
+		List<PetActivity> atcis = petActivityRepository.searchPetActivityByUser(user);
+		for (PetActivity petActivity : atcis) {
+			System.out.println(petActivity.getActivity().getDescription());
+		}
+
+		return atcis;
 	}
 
 }

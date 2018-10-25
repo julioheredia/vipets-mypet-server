@@ -19,12 +19,14 @@ public class LoginServiceImpl implements LoginService {
 	public User login(String email, String password) {
 
 		System.out.println("metodo de login - " + email + " - parametro ");
-
+		if (email == null)
+			throw new NullPointerException();
+		
 		if (StringUtils.isNotBlank(email) && StringUtils.isNotBlank(password)) {
 			password = CriptoUtil.criptografiaBase64Encoder(password);
 
 			User loger = userRepository.login(email, password);
-			//if (loger != null)
+			
 			System.out.println("logou  " + loger.getEmail());
 
 			return loger;

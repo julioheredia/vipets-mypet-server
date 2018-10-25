@@ -14,10 +14,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
-@Data 
+@Data
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -39,17 +41,19 @@ public class User implements Serializable {
 	private LocalDate registrationDate;
 	@Column
 	private LocalDate lastChangeDate;
-	@Column 
+	@Column
 	private boolean admin;
 	@Column
 	private boolean employee;
 	@Column
 	private boolean client;
 
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "pet_owner", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "pet_id"))
 	private List<Pet> pets;
 
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "user_petshop", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "petshop_id"))
 	private List<Petshop> petshops;
