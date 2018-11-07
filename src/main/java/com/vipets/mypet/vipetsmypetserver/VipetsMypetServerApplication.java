@@ -22,7 +22,7 @@ import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 @EnableAutoConfiguration
 @ComponentScan({ "com.vipets.mypet.vipetsmypetserver" })
 @SpringBootApplication
-public class VipetsMypetServerApplication  extends SpringBootServletInitializer {
+public class VipetsMypetServerApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -33,12 +33,14 @@ public class VipetsMypetServerApplication  extends SpringBootServletInitializer 
 		SpringApplication.run(VipetsMypetServerApplication.class, args);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
 	public ServletRegistrationBean servletRegistrationBean() {
 		FacesServlet servlet = new FacesServlet();
 		return new ServletRegistrationBean(servlet, "*.jsf");
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
 	public FilterRegistrationBean rewriteFilter() {
 		FilterRegistrationBean rwFilter = new FilterRegistrationBean(new RewriteFilter());
@@ -47,4 +49,5 @@ public class VipetsMypetServerApplication  extends SpringBootServletInitializer 
 		rwFilter.addUrlPatterns("/*");
 		return rwFilter;
 	}
+	
 }

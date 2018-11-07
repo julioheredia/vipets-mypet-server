@@ -32,8 +32,13 @@ public class Pet implements Serializable {
 	private long petId;
 	@Column
 	private String name;
+
+	@JsonIgnore
 	@Column
 	private byte[] photo;
+
+//	@Transient
+//	private String image;
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -76,4 +81,11 @@ public class Pet implements Serializable {
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<PetActivity> petActivitys;
+
+//	@PostLoad
+//	public void convertImage() {
+//		if (this.photo != null)
+//			this.image = ImagesUtil.convertByteArrayToFile(this.photo, "pet" + this.petId);
+//	}
+
 }
