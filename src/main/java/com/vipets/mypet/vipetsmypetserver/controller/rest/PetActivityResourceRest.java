@@ -13,6 +13,7 @@ import com.vipets.mypet.vipetsmypetserver.model.PetActivity;
 import com.vipets.mypet.vipetsmypetserver.model.User;
 import com.vipets.mypet.vipetsmypetserver.service.PetActivityService;
 import com.vipets.mypet.vipetsmypetserver.util.ImagesUtil;
+import com.vipets.mypet.vipetsmypetserver.util.ImagesUtil.ImagePerformerType;
 
 @RestController
 public class PetActivityResourceRest {
@@ -29,8 +30,8 @@ public class PetActivityResourceRest {
 		ImagesUtil imagesUtil = new ImagesUtil();
 		List<PetActivity> atcis = petActivityService.searchPetActivityByUser(user);
 		for (PetActivity petActivity : atcis) {
-			imagesUtil.convertByteArrayInImage(petActivity.getPet().getPhoto(), diretorio,
-					"pet" + petActivity.getPet().getPetId());
+			imagesUtil.convertByteArrayInImageJpeg(petActivity.getPet().getPhoto(), diretorio, ImagePerformerType.Pet,
+					String.valueOf(petActivity.getPet().getPetId()));
 		}
 		return petActivityService.searchPetActivityByUser(user);
 	}

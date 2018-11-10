@@ -9,8 +9,13 @@ import com.vipets.mypet.vipetsmypetserver.model.User;
 import com.vipets.mypet.vipetsmypetserver.service.LoginService;
 import com.vipets.mypet.vipetsmypetserver.util.CriptoUtil;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Service
 public class LoginServiceImpl implements LoginService {
+
+	private final Logger logger = LoggerFactory.getLogger(LoginServiceImpl.class);
 
 	@Autowired
 	private UserRepository userRepository;
@@ -18,16 +23,16 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public User login(String email, String password) {
 
-		System.out.println("metodo de login - " + email + " - parametro ");
+		logger.debug("metodo de login - " + email + " - parametro ");
 		if (email == null)
 			throw new NullPointerException();
-		
+
 		if (StringUtils.isNotBlank(email) && StringUtils.isNotBlank(password)) {
 			password = CriptoUtil.criptografiaBase64Encoder(password);
 
 			User loger = userRepository.login(email, password);
-			
-			System.out.println("logou  " + loger.getEmail());
+
+			logger.debug("logou  " + loger.getEmail());
 
 			return loger;
 		}
