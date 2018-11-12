@@ -7,16 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vipets.mypet.vipetsmypetserver.model.User;
 import com.vipets.mypet.vipetsmypetserver.security.Credentials;
-import com.vipets.mypet.vipetsmypetserver.service.LoginService;
+import com.vipets.mypet.vipetsmypetserver.service.AuthenticationService;
 
 @RestController
-public class LoginResourceRest {
+public class AuthenticationResourceRest {
 
 	@Autowired
-	private LoginService loginService;
+	private AuthenticationService authenticationService;
 
-	@PostMapping("/login")
-	public User login(@RequestBody Credentials credentials) {
-		return loginService.login(credentials.getEmail(), credentials.getPassword());
+	@PostMapping("/authentication")
+	public User authentication(@RequestBody Credentials credentials) {
+		return authenticationService.authentication(credentials.getEmail(), credentials.getPassword());
 	}
+
 }

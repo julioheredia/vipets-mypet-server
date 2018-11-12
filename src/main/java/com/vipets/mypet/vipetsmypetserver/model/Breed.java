@@ -2,7 +2,6 @@ package com.vipets.mypet.vipetsmypetserver.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,11 +24,8 @@ public class Breed implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "animal_species_id", nullable = false)
 	private AnimalSpecies AnimalSpecies;
-	@Column
 	private String name;
-	@Column
 	private String description;
-	@Column
 	private byte[] exampleImage;
 
 }

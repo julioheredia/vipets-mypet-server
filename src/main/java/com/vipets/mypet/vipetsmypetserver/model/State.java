@@ -2,7 +2,6 @@ package com.vipets.mypet.vipetsmypetserver.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,13 +24,9 @@ public class State implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "country_id", nullable = false)
 	private Country country;
-	@Column
 	private String description;
-	@Column
 	private String stateCode;
-	@Column
 	private String telStateCode;
-	@Column
 	private String active;
 
 }

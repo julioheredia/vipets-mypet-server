@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vipets.mypet.vipetsmypetserver.util.ImagesUtil.ImageType;
+
 @RestController
 public class ImagesResourceRest {
 
@@ -27,7 +29,7 @@ public class ImagesResourceRest {
 		String diretorio = context.getRealPath("WEB-INF/images/");
 		BufferedImage originalImage = ImageIO.read(new File(diretorio + imageName));
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ImageIO.write(originalImage, "jpg", baos);
+		ImageIO.write(originalImage, ImageType.jpeg.name(), baos);
 		baos.flush();
 		byte[] imageInByte = baos.toByteArray();
 		baos.close();

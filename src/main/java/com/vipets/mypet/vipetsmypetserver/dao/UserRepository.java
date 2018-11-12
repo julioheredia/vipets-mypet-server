@@ -9,6 +9,6 @@ import com.vipets.mypet.vipetsmypetserver.model.User;
 public interface UserRepository extends CrudRepository<User, Long> {
 
 	@Query("select u from User u where u.email =:email and u.password =:password ")
-	User login(@Param("email") String email, @Param("password") String password);
+	User authentication(@Param("email") String email, @Param("password") String password);
 
 }

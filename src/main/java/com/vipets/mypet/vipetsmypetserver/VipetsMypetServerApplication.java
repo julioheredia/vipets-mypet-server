@@ -4,6 +4,8 @@ import java.util.EnumSet;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.DispatcherType;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 import org.ocpsoft.rewrite.servlet.RewriteFilter;
 import org.springframework.boot.SpringApplication;
@@ -29,6 +31,12 @@ public class VipetsMypetServerApplication extends SpringBootServletInitializer {
 		return application.sources(VipetsMypetServerApplication.class);
 	}
 
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		Application.getInstance().setServletContext(servletContext);
+		super.onStartup(servletContext);
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(VipetsMypetServerApplication.class, args);
 	}
@@ -49,5 +57,5 @@ public class VipetsMypetServerApplication extends SpringBootServletInitializer {
 		rwFilter.addUrlPatterns("/*");
 		return rwFilter;
 	}
-	
+
 }

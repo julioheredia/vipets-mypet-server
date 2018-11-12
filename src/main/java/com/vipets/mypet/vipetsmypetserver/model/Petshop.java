@@ -1,11 +1,10 @@
 package com.vipets.mypet.vipetsmypetserver.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,28 +26,18 @@ public class Petshop implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long petshopId;
-	@Column
 	private String name;
-	@Column
 	private String businessName;
-	@Column
 	private byte[] logo;
-	@Column
 	private String email;
-	@Column
 	private String telephone;
-	@Column
 	private String telephoneAux;
-	@Column
-	private LocalDate dateRegistration;
-	@Column
-	private LocalDate dateLastChange;
-
+	private LocalDateTime dateRegistration;
+	private LocalDateTime dateLastChange;
 	@JsonIgnore
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "animal_petshop", joinColumns = @JoinColumn(name = "petshop_id"), inverseJoinColumns = @JoinColumn(name = "pet_id"))
 	private List<Pet> pets;
-
 	@JsonIgnore
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "user_petshop", joinColumns = @JoinColumn(name = "petshop_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))

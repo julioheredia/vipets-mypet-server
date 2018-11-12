@@ -1,9 +1,8 @@
 package com.vipets.mypet.vipetsmypetserver.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -46,11 +45,8 @@ public class PetActivity implements Serializable {
 	@JoinColumn(name = "petshop_id", nullable = false)
 	private Petshop petshop;
 
-	@Column
-	private LocalDate clientScheduledTime;
-	@Column
-	private LocalDate activityStart;
-	@Column
-	private LocalDate activityEnd;
+	private LocalDateTime clientScheduledTime;
+	private LocalDateTime activityStart;
+	private LocalDateTime activityEnd;
 
 }
