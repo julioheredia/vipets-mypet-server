@@ -23,7 +23,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	@Override
 	public User authentication(String email, String password) {
 
-		logger.debug("metodo de login - " + email + " - parametro ");
+		logger.debug("authentication - " + email + " - paramether ");
 		if (email == null)
 			throw new NullPointerException();
 
@@ -32,7 +32,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 			User loger = userRepository.authentication(email, password);
 
-			logger.debug("logou  " + loger.getEmail());
+			logger.debug("authentication  " + loger.getEmail());
 
 			return loger;
 		}

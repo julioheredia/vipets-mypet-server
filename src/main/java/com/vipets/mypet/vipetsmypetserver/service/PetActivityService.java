@@ -9,5 +9,7 @@ public interface PetActivityService {
 	public List<PetActivity> petActivitysByPetshop(Long petshopId);
 
 	public List<PetActivity> petActivitysByUser(Long userId);
-	
+
+	public PetActivity createPetActivitys(PetActivity petActivity);
+
 }

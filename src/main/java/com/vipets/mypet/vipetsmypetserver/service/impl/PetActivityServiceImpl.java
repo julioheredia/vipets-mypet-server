@@ -26,4 +26,9 @@ public class PetActivityServiceImpl implements PetActivityService {
 		return petActivityRepository.petActivitysByUser(userId, LocalDateTime.now());
 	}
 
+	@Override
+	public PetActivity createPetActivitys(PetActivity petActivity) {
+		return petActivityRepository.save(petActivity);
+	}
+
 }
