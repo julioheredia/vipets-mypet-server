@@ -1,0 +1,11 @@
+package com.vipets.mypet.vipetsmypetserver.service;
+
+import java.util.List;
+
+import com.vipets.mypet.vipetsmypetserver.model.Pet;
+
+public interface PetService {
+
+	public List<Pet> pets();
+
+}
