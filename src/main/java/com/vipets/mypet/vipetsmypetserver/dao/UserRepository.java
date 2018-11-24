@@ -13,7 +13,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	@Query("select u from User u where u.email =:email and u.password =:password ")
 	User authentication(@Param("email") String email, @Param("password") String password);
 
-	@Query("select u from User u where u.employee = true ")
-	List<User> employees();
-
+	@Query("select u from User u join u.petshops ps where u.employee = true and ps.petshopId = :petshopId ")
+	List<User> employeesByPetshop(@Param("petshopId") Long petshopId);
+	
 }

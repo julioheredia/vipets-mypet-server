@@ -6,6 +6,6 @@ import com.vipets.mypet.vipetsmypetserver.model.Pet;
 
 public interface PetService {
 
-	public List<Pet> pets();
+	public List<Pet> petsByPetshop(Long petshopId);
 
 }

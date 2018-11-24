@@ -16,7 +16,7 @@ public class ActivityServiceImpl implements ActivityService {
 	private ActivityRepository activityRepository;
 
 	@Override
-	public List<Activity> activitys() {
+	public List<Activity> activitys(){
 		return activityRepository.activitys();
 	}
 

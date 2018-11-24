@@ -16,7 +16,7 @@ public class ActivityResourceRest {
 	private ActivityService activityService;
 
 	@RequestMapping("/activitys")
-	public List<Activity> activitys() {
+	public List<Activity> activitys(){
 		return activityService.activitys();
 	}
 }

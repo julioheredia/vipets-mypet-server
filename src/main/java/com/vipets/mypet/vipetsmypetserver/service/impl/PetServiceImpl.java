@@ -16,8 +16,8 @@ public class PetServiceImpl implements PetService {
 	private PetRepository petRepository;
 
 	@Override
-	public List<Pet> pets() {
-		return (List<Pet>) petRepository.findAll();
+	public List<Pet> petsByPetshop(Long petshopId) {
+		return (List<Pet>) petRepository.petsByPetshop(petshopId);
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vipets.mypet.vipetsmypetserver.model.User;
@@ -15,9 +16,9 @@ public class UserResourceRest {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping("/users/employees")
-	public List<User> employees() {
-		return userService.employees();
+	@RequestMapping("/users/employees/petshop")
+	public List<User> employeesByPetshop(@RequestParam(value = "petshopId") Long petshopId) {
+		return userService.employeesByPetshop(petshopId);
 	}
 
 }

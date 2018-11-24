@@ -12,6 +12,6 @@ public interface UserService {
 
 	public boolean createClient(User client);
 
-	public List<User> employees();
+	public List<User> employeesByPetshop(Long petshopId);
 
 }

@@ -17,8 +17,8 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 
 	@Override
-	public List<User> employees() {
-		return userRepository.employees();
+	public List<User> employeesByPetshop(Long petshopId) {
+		return userRepository.employeesByPetshop(petshopId);
 	}
 
 	@Override
