@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
-@Entity
 @Data
+@Entity
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -37,11 +36,11 @@ public class User implements Serializable {
 	private boolean employee;
 	private boolean client;
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToMany
 	@JoinTable(name = "pet_owner", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "pet_id"))
 	private List<Pet> pets;
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToMany
 	@JoinTable(name = "user_petshop", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "petshop_id"))
 	private List<Petshop> petshops;
 

@@ -22,8 +22,8 @@ public class PetActivityServiceImpl implements PetActivityService {
 	}
 
 	@Override
-	public List<PetActivity> petActivitysByUser(Long userId) {
-		return petActivityRepository.petActivitysByUser(userId, LocalDateTime.now());
+	public List<PetActivity> petActivitysByEmployee(Long userId) {
+		return petActivityRepository.petActivitysByEmployee(userId, LocalDateTime.now());
 	}
 
 	@Override

@@ -16,4 +16,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	@Query("select u from User u join u.petshops ps where u.employee = true and ps.petshopId = :petshopId ")
 	List<User> employeesByPetshop(@Param("petshopId") Long petshopId);
 	
+	@Query("select u from User u join u.petshops ps where u.client = true and ps.petshopId = :petshopId ")
+	List<User> clientsByPetshop(@Param("petshopId") Long petshopId);
+	
 }

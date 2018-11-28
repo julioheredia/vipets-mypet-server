@@ -14,7 +14,7 @@ public interface PetActivityRepository extends CrudRepository<PetActivity, Long>
 	@Query("select p from PetActivity p where p.petshop.petshopId = :petshopId  and p.activityEnd >= :time order by p.clientScheduledTime ")
 	List<PetActivity> petActivitysByPetshop(@Param("petshopId") Long petshopId, @Param("time") LocalDateTime time);
 
-	@Query("select p from PetActivity p where p.user.userId = :userId and p.activityEnd >= :time order by p.clientScheduledTime ")
-	List<PetActivity> petActivitysByUser(@Param("userId") Long userId, @Param("time") LocalDateTime time);
+	@Query("select p from PetActivity p where p.employed.userId = :userId and p.activityEnd >= :time order by p.clientScheduledTime ")
+	List<PetActivity> petActivitysByEmployee(@Param("userId") Long userId, @Param("time") LocalDateTime time);
 	
 }

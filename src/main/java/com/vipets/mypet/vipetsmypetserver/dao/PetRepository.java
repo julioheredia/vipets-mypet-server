@@ -10,6 +10,7 @@ import com.vipets.mypet.vipetsmypetserver.model.Pet;
 
 public interface PetRepository extends CrudRepository<Pet, Long> {
 
-	@Query("select p from Pet p join p.petshops ps where ps.petshopId = :petshopId ")
-	public List<Pet> petsByPetshop(@Param("petshopId")Long petshopId);
+	@Query("select p from Pet p join p.owners o join o.petshops ps where ps.petshopId = :petshopId ")
+	public List<Pet> petsByPetshop(@Param("petshopId") Long petshopId);
+	
 }

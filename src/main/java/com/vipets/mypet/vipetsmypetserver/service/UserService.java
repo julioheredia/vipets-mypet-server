@@ -6,12 +6,14 @@ import com.vipets.mypet.vipetsmypetserver.model.User;
 
 public interface UserService {
 
-	public boolean createAdmin(User admin);
+	public User createAdmin(User admin);
 
-	public boolean createEmployee(User employee);
+	public User createEmployee(User employee);
 
-	public boolean createClient(User client);
+	public User createClient(User client);
 
 	public List<User> employeesByPetshop(Long petshopId);
+
+	public List<User> clientsByPetshop(Long petshopId);
 
 }

@@ -3,6 +3,8 @@ package com.vipets.mypet.vipetsmypetserver.controller.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,4 +23,19 @@ public class UserResourceRest {
 		return userService.employeesByPetshop(petshopId);
 	}
 
+	@RequestMapping("/users/clients/petshop")
+	public List<User> clientsByPetshop(@RequestParam(value = "petshopId") Long petshopId) {
+		return userService.clientsByPetshop(petshopId);
+	}
+
+	@PutMapping("/users/clients")
+	public User createClient(@RequestBody User user) {
+		return userService.createClient(user);
+	}
+	
+	@PutMapping("/users/employees")
+	public User createEmployee(@RequestBody User user) {
+		return userService.createEmployee(user);
+	}
+	
 }

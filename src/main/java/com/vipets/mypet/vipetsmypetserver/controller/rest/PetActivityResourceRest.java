@@ -18,9 +18,9 @@ public class PetActivityResourceRest {
 	@Autowired
 	private PetActivityService petActivityService;
 
-	@RequestMapping("/petActivitys/user")
-	public List<PetActivity> petActivitysByUser(@RequestParam(value = "userId") Long userId) {
-		return petActivityService.petActivitysByUser(userId);
+	@RequestMapping("/petActivitys/employee")
+	public List<PetActivity> petActivitysByEmployee(@RequestParam(value = "userId") Long userId) {
+		return petActivityService.petActivitysByEmployee(userId);
 	}
 
 	@RequestMapping("/petActivitys/petshop")

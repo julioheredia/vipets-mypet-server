@@ -5,14 +5,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -26,8 +24,8 @@ import com.vipets.mypet.vipetsmypetserver.util.ImagesUtil.ImageType;
 
 import lombok.Data;
 
-@Entity
 @Data
+@Entity
 public class Pet implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,14 +34,9 @@ public class Pet implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long petId;
 	private String name;
-	@JsonIgnore
 	private byte[] photo;
 	@Transient
 	private String imageName;
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "animal_species_id", nullable = false)
-	private AnimalSpecies AnimalSpecies;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "breed_id", nullable = false)
 	private Breed Breed;
@@ -57,12 +50,7 @@ public class Pet implements Serializable {
 	private LocalDateTime lastChangeDate;
 	private LocalDate birthDate;
 	@JsonIgnore
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "animal_petshop", joinColumns = @JoinColumn(name = "pet_id"), inverseJoinColumns = @JoinColumn(name = "petshop_id"))
-	private List<Petshop> petshops;
-	@JsonIgnore
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "pet_owner", joinColumns = @JoinColumn(name = "pet_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	@ManyToMany(mappedBy = "pets")
 	private List<User> owners;
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY)
