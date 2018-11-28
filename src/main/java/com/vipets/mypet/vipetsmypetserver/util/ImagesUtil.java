@@ -2,6 +2,7 @@ package com.vipets.mypet.vipetsmypetserver.util;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,6 +39,17 @@ public class ImagesUtil {
 		} catch (IOException e) {
 			logger.error("Error to convert image", e);
 		}
+	}
+	
+	public static byte[] convertImageJpegInByteArray(String imageName) throws IOException {
+		String directory = ImagesUtil.getImagesDirectory();
+		BufferedImage originalImage = ImageIO.read(new File(directory + imageName));
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ImageIO.write(originalImage, ImageType.jpeg.name(), baos);
+		baos.flush();
+		byte[] imageInByte = baos.toByteArray();
+		baos.close();
+		return imageInByte;
 	}
 
 	public static String joinImageName(ImagePerformerType imagePerformerType, String nameImage, ImageType imageType) {
