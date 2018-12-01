@@ -29,8 +29,8 @@ public class PetActivityResourceRest {
 	}
 
 	@PutMapping("/petActivitys")
-	public PetActivity createPetActivitys(@RequestBody PetActivity petActivity) {
-		return petActivityService.createPetActivitys(petActivity);
+	public PetActivity savePetActivitys(@RequestBody PetActivity petActivity) {
+		return petActivityService.savePetActivitys(petActivity);
 	}
 
 }

@@ -10,6 +10,6 @@ public interface PetActivityService {
 
 	public List<PetActivity> petActivitysByEmployee(Long userId);
 
-	public PetActivity createPetActivitys(PetActivity petActivity);
+	public PetActivity savePetActivitys(PetActivity petActivity);
 
 }

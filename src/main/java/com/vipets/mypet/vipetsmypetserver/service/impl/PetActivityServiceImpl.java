@@ -27,7 +27,7 @@ public class PetActivityServiceImpl implements PetActivityService {
 	}
 
 	@Override
-	public PetActivity createPetActivitys(PetActivity petActivity) {
+	public PetActivity savePetActivitys(PetActivity petActivity) {
 		return petActivityRepository.save(petActivity);
 	}
 

@@ -22,7 +22,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	@Override
-	public Pet createPet(Pet pet) {
+	public Pet savePet(Pet pet) {
 		pet.setLastChangeDate(LocalDateTime.now());
 		pet.setRegistrationDate(LocalDateTime.now());
 		return petRepository.save(pet);

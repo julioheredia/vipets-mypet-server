@@ -8,6 +8,6 @@ public interface PetService {
 
 	public List<Pet> petsByPetshop(Long petshopId);
 
-	public Pet createPet(Pet pet);
+	public Pet savePet(Pet pet);
 
 }

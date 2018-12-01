@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	@Override
-	public User createAdmin(User admin) {
+	public User saveAdmin(User admin) {
 		admin = setAuthUser(admin, true, false, false, false);
 		admin = critpoPassword(admin);
 		return userRepository.save(admin);
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	@Override
-	public User createEmployee(User employee) {
+	public User saveEmployee(User employee) {
 		employee = setAuthUser(employee, false, true, false, false);
 		employee = critpoPassword(employee);
 		return userRepository.save(employee);
@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	@Override
-	public User createClient(User client) {
+	public User saveClient(User client) {
 		client = setAuthUser(client, false, false, true, true);
 		client = critpoPassword(client);
 		return userRepository.save(client);

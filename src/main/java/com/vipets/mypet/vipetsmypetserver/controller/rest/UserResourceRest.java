@@ -29,13 +29,13 @@ public class UserResourceRest {
 	}
 
 	@PutMapping("/users/clients")
-	public User createClient(@RequestBody User user) {
-		return userService.createClient(user);
+	public User saveClient(@RequestBody User user) {
+		return userService.saveClient(user);
 	}
 	
 	@PutMapping("/users/employees")
-	public User createEmployee(@RequestBody User user) {
-		return userService.createEmployee(user);
+	public User saveEmployee(@RequestBody User user) {
+		return userService.saveEmployee(user);
 	}
 	
 }
